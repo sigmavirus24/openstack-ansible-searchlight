@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Ian Cordasco
+  description: An Ansible Galaxy Role for Deploying OpenStack Searchlight
+  company:
+  license: Apache
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  categories:
+  - cloud
+dependencies: []

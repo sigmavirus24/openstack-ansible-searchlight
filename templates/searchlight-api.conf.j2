@@ -1,0 +1,55 @@
+[DEFAULT]
+bind_host = {{ searchlight_bind_host }}
+bind_port = {{ searchlight_bind_port }}
+backlog = {{ searchlight_backlog }}
+{% if searchlight_ca_file is defined %}
+ca_file = {{ searchlight_ca_file }}
+{% endif %}
+{% if searchlight_cert_file is defined %}
+cert_file = {{ searchlight_cert_file }}
+{% endif %}
+{% if searchlight_key_file is defined %}
+key_file = {{ searchlight_key_file }}
+{% endif %}
+workers = {{ searchlight_workers }}
+max_header_line = {{ searchlight_max_header_line }}
+http_keepalive = {{ searchlight_http_keepalive }}
+{% if searchlight_property_protection_file is defined %}
+property_protection_file = {{ searchlight_property_protection_file }}
+{% endif %}
+{% if searchlight_property_protection_rule_format is defined %}
+property_protection_rule_format = {{ searchlight_property_protection_rule_format }}
+{% endif %}
+limit_param_default = {{ searchlight_limit_param_default }}
+api_limit_max = {{ searchlight_api_limit_max }}
+{% if searchlight_pydev_worker_debug_host is defined %}
+pydev_worker_debug_host = {{ searchlight_pydev_worker_debug_host }}
+{% endif %}
+{% if searchlight_pydev_worker_debug_port is defined %}
+pydev_worker_debug_port = {{ searchlight_pydev_worker_debug_port }}
+{% endif %}
+{% if searchlight_metadata_encryption_key is defined %}
+metadata_encryption_key = {{ searchlight_metadata_encryption_key }}
+{% endif %}
+digest_algorithm = {{ searchlight_digest_algorithm }}
+
+
+[elasticsearch]
+hosts = {{ searchlight_elasticsearch_hosts | join(',') }}
+
+
+[oslo_policy]
+policy_file = policy.json
+policy_default_rule = default
+
+
+[paste_deploy]
+flavor = {{ searchlight_paste_deploy_flavor }}
+{% if searchlight_paste_deploy_config_file is defined %}
+config_file = {{ searchlight_paste_deploy_config_file }}
+{% endif %}
+
+
+[profiler]
+enabled = {{ searchlight_profiler_enabled }}
+trace_sqlalchemy = {{ searchlight_profiler_trace_sqlalchemy }}
