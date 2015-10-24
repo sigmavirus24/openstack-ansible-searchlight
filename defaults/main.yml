@@ -33,6 +33,40 @@ searchlight_system_user_home: "/var/lib/{{ searchlight_system_user_name }}"
 #: Searchlight log directory
 searchlight_log_directory: /var/lib/searchlight
 
+#: # Necessary packages
+searchlight_apt_packages:
+  - git
+  - build-essential
+  - python-dev
+
+searchlight_pip_packages:
+  - searchlight
+  - greenlet
+  - PasteDeploy
+  - Webob
+  - httplib2
+  - pycrypto
+  - oslo.config
+  - oslo.concurrency
+  - oslo.context
+  - oslo.i18n
+  - oslo.log
+  - oslo.messaging
+  - oslo.policy
+  - oslo.serialization
+  - oslo.service
+  - oslo.utils
+  - osprofiler
+  - stevedore
+  - keystonemiddleware
+  - WSME
+  - jsonschema
+  - pyOpenSSL
+  - six
+  - elasticsearch
+  - python-designateclient
+  - python-glanceclient
+  - python-novaclient
 
 #: Address to bind the server.  Useful when selecting a particular
 #: network interface. (string value)
