@@ -19,6 +19,21 @@ is_metal: true
 debug: false
 verbose: true
 
+#: # System configuration options
+#: System user name
+searchlight_system_user_name: searchlight
+#: System group name
+searchlight_system_group_name: searchlight
+#: System user shell
+searchlight_system_shell: /bin/false
+#: System user comment
+searchlight_system_comment: searchlight system user
+#: System user home directory
+searchlight_system_user_home: "/var/lib/{{ searchlight_system_user_name }}"
+#: Searchlight log directory
+searchlight_log_directory: /var/lib/searchlight
+
+
 #: Address to bind the server.  Useful when selecting a particular
 #: network interface. (string value)
 searchlight_bind_host: '0.0.0.0'
