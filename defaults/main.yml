@@ -32,6 +32,32 @@ searchlight_system_comment: searchlight system user
 searchlight_system_user_home: "/var/lib/{{ searchlight_system_user_name }}"
 #: Searchlight log directory
 searchlight_log_directory: /var/lib/searchlight
+#: Searchlight etc directory
+searchlight_etc_directory: /etc/searchlight
+#: Searchlight program name
+searchlight_api_program_name: searchlight-api
+#: Searchlight service name
+searchlight_service_name: searchlight
+#: Service catalog service type for Searchlight
+searchlight_service_type: search
+#: Service catalog description for Searchlight
+searchlight_service_description: "OpenStack Search (Searchlight)"
+#: Identity Project that the searchlight user should belong to
+searchlight_service_project_name: 'service'
+#: Identity password for the Searchlight service
+#: This should be specified in user_secrets.yml if using openstack-ansible
+#searchlight_service_password:
+#: Roles that the Searchlight user should have
+searchlight_service_role_names:
+  - admin
+#: Region to register Searchlight service for
+searchlight_service_region: RegionOne
+#: Public URL endpoint for Searchlight
+searchlight_service_publicurl: "{{ searchlight_service_publicuri_protocol }}://{{ external_lb_vip_address }}:{{ searchlight_bind_port }}"
+#: Internal URL endpoint for Searchlight
+searchlight_service_internalurl: "{{ searchlight_service_internaluri_protocol }}://{{ internal_lb_vip_address }}:{{ searchlight_bind_port }}"
+#: Admin URL endpoint for Searchlight
+searchlight_service_adminurl: "{{ searchlight_service_adminuri_protocol }}://{{ internal_lb_vip_address }}:{{ searchlight_bind_port }}"
 
 #: # Necessary packages
 searchlight_apt_packages:
@@ -183,3 +209,5 @@ searchlight_profiler_trace_sqlalchemy: false
 searchlight_api_paste_ini_overrides: {}
 searchlight_api_conf_overrides: {}
 searchlight_policy_overrides: {}
+searchlight_property_protections_policies_overrides: {}
+searchlight_property_protections_roles_overrides: {}

@@ -1,0 +1,48 @@
+---
+# Copyright 2015, Ian Cordasco
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- name: Distribute Searchlight Config File(s)
+  config_template:
+    src: "{{ item.source }}"
+    dest: "{{ item.destination }}"
+    owner: "{{ searchlight_system_user_name }}"
+    group: "{{ searchlight_system_group_name }}"
+    mode: "0644"
+    config_overrides: "{{ item.config_overrides }}"
+    config_type: "{{ item.config_type }}"
+  with_items:
+    - source: "searchlight-api.conf.j2"
+      destination: "{{ searchlight_etc_directory }}/searchlight-api.conf"
+      config_overrides: "{{ searchlight_api_conf_overrides }}"
+      config_type: "ini"
+    - source: "searchlight-api-paste.ini.j2"
+      destination: "{{ searchlight_etc_directory }}/searchlight-api-paste.ini"
+      config_overrides: "{{ searchlight_api_paste_overrides }}"
+      config_type: "ini"
+    - source: "policy.json.j2"
+      destination: "{{ searchlight_etc_directory }}/policy.json"
+      config_overrides: "{{ searchlight_policy_overrides }}"
+      config_type: "json"
+    - source: "property-protections-policies.conf.j2"
+      destination: "{{ searchlight_etc_directory }}/property-protections-policies.conf"
+      config_overrides: "{{ searchlight_property_protections_policies_overrides }}"
+      config_type: "ini"
+    - source: "property-protections-roles.conf.j2"
+      destination: "{{ searchlight_etc_directory }}/property-protections-roles.conf"
+      config_overrides: "{{ searchlight_property_protections_roles_overrides }}"
+      config_type: "ini"
+  tags:
+    - searchlight-config-files
+    - searchlight-configuration

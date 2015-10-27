@@ -13,17 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: searchlight_pre_install.yml
-
-- include: searchlight_install.yml
-
-- include: searchlight_post_install.yml
-
-- include: searchlight_upstart_init.yml
-
-- include: searchlight_service_setup.yml
-  when:
-    inventory_hostname == groups['searchlight_all'][0]
-
-- name: Flush handlers
-  meta: flush_handlers
+- include: searchlight_upstart_common_init.yml
+  vars:
+    program_name: "{{ searchlight_api_program_name }}"
+    service_name: "{{ searchlight_service_name }}"
+    system_user: "{{ searchlight_system_user_name }}"
+    system_group: "{{ searchlight_system_group_name }}"
+    service_home: "{{ searchlight_system_user_home }}"
