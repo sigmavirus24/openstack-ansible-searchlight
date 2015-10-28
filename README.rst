@@ -17,7 +17,7 @@ See ``defaults/main.yml`` for variables and their descriptions.
 Dependencies
 ------------
 
-- ``stouts.elasticsearch``
+- ``Stouts.elasticsearch``
 
 Example Playbook
 ----------------
