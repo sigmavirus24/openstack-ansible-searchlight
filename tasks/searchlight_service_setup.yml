@@ -23,7 +23,7 @@
     service_type: "{{ searchlight_service_type }}"
     description: "{{ searchlight_service_description }}"
   register: add_searchlight_service
-  until: add_service|success
+  until: add_searchlight_service|success
   retries: 5
   delay: 2
   tags:
