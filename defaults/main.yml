@@ -96,7 +96,7 @@ searchlight_pip_packages:
 
 searchlight_git_url: "https://git.openstack.org/openstack/searchlight"
 searchlight_git_install_branch: 95a25fab78cc6fe9ae764c29372d6df8620337a2  # head of "master" as of 30.10.2015
-searchlight_git_dest: "/opt/searchlight_{{ searchlight_git_install_branch }} | replace('/', '_')"
+searchlight_git_dest: "/opt/searchlight_{{ searchlight_git_install_branch | replace('/', '_') }}"
 
 #: Address to bind the server.  Useful when selecting a particular
 #: network interface. (string value)
