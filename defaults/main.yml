@@ -38,6 +38,8 @@ searchlight_etc_directory: /etc/searchlight
 searchlight_api_program_name: searchlight-api
 #: Searchlight service name
 searchlight_service_name: searchlight
+#: Searchlight service user name
+searchlight_service_user_name: searchlight
 #: Service catalog service type for Searchlight
 searchlight_service_type: search
 #: Service catalog description for Searchlight
