@@ -29,7 +29,7 @@
       config_type: "ini"
     - source: "searchlight-api-paste.ini.j2"
       destination: "{{ searchlight_etc_directory }}/searchlight-api-paste.ini"
-      config_overrides: "{{ searchlight_api_paste_overrides }}"
+      config_overrides: "{{ searchlight_api_paste_ini_overrides }}"
       config_type: "ini"
     - source: "policy.json.j2"
       destination: "{{ searchlight_etc_directory }}/policy.json"
