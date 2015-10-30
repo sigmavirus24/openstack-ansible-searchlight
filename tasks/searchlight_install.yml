@@ -30,7 +30,7 @@
     pkg: "{{ item }}"
     state: "latest"
   register: install_apt_packages
-  until: install_apt_packages |success
+  until: install_apt_packages|success
   retries: 5
   delay: 2
   with_items: searchlight_apt_packages
@@ -39,12 +39,22 @@
     - searchlight-apt-packages
     - searchlight-install-apt-packages
 
+- name: Install Searchlight from git
+  pip:
+    name: "{{ searchlight_git_dest }}"
+    state: "present"
+  register: searchlight_pip_install
+  until: searchlight_pip_install|success
+  retries: 5
+  delay: 2
+
 - name: Install Searchlight pip packages
   pip:
     name: "{{ item }}"
     state: "present"
     extra_args: "{{ pip_install_options |default('') }}"
-  register: install_pip_packages |success
+  register: install_pip_packages
+  until: install_pip_packages|success
   retries: 5
   delay: 2
   with_items: searchlight_pip_packages

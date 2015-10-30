@@ -46,3 +46,10 @@
   tags:
     - searchlight-config-files
     - searchlight-configuration
+
+- name: Remove Searchlight source clone
+  file:
+    name: "{{ searchlight_git_dest }}"
+    state: "absent"
+  tags:
+    - searchlight-clean-up

@@ -72,3 +72,16 @@
   tags:
     - searchlight-directories
     - searchlight-logs
+
+- name: Get the Searchlight source
+  git:
+    repo: "{{ searchlight_git_url }}"
+    version: "{{ searchlight_git_install_branch }}"
+    dest: "{{ searchlight_git_dest }}"
+    force: yes
+  register: searchlight_git_clone
+  until: searchlight_git_clone|success
+  retries: 5
+  delay: 2
+  tags:
+    - searchlight-git-clone
