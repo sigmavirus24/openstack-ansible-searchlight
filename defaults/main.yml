@@ -54,10 +54,16 @@ searchlight_service_role_names:
   - admin
 #: Region to register Searchlight service for
 searchlight_service_region: RegionOne
+#: Protocol to default Searchlight's Public URL to (e.g., http, https)
+searchlight_service_publicuri_protocol: http
 #: Public URL endpoint for Searchlight
 searchlight_service_publicurl: "{{ searchlight_service_publicuri_protocol }}://{{ external_lb_vip_address }}:{{ searchlight_bind_port }}"
+#: Protocol to default Searchlight's Internal URL to (e.g., http, https)
+searchlight_service_internaluri_protocol: http
 #: Internal URL endpoint for Searchlight
 searchlight_service_internalurl: "{{ searchlight_service_internaluri_protocol }}://{{ internal_lb_vip_address }}:{{ searchlight_bind_port }}"
+#: Protocol to default Searchlight's Admin URL to (e.g., http, https)
+searchlight_service_adminuri_protocol: http
 #: Admin URL endpoint for Searchlight
 searchlight_service_adminurl: "{{ searchlight_service_adminuri_protocol }}://{{ internal_lb_vip_address }}:{{ searchlight_bind_port }}"
 
