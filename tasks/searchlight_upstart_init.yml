@@ -20,3 +20,11 @@
     system_user: "{{ searchlight_system_user_name }}"
     system_group: "{{ searchlight_system_group_name }}"
     service_home: "{{ searchlight_system_user_home }}"
+
+- include: searchlight_upstart_common_init.yml
+  vars:
+    program_name: "{{ searchlight_listener_program_name }}"
+    service_name: "{{ searchlight_service_name }}"
+    system_user: "{{ searchlight_system_user_name }}"
+    system_group: "{{ searchlight_system_group_name }}"
+    service_home: "{{ searchlight_system_user_home }}"

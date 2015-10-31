@@ -15,5 +15,7 @@
 
 - name: Restart searchlight services
   service:
-    name: searchlight
-    state: restarted
+    name: "{{ item }}"
+    state: "restarted"
+    pattern: "{{ item }}"
+  with_items: searchlight_service_names
