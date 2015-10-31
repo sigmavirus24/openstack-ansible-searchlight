@@ -35,7 +35,7 @@
   keystone:
     command: "ensure_user"
     token: "{{ keystone_auth_admin_token }}"
-    endpoint: "{{ keystone_service_adminuri }}"
+    endpoint: "{{ keystone_service_adminurl }}"
     insecure: "{{ keystone_service_adminuri_insecure }}"
     user_name: "{{ searchlight_service_user_name }}"
     tenant_name: "{{ searchlight_service_project_name }}"
@@ -54,7 +54,7 @@
   keystone:
     command: "ensure_user_role"
     token: "{{ keystone_auth_admin_token }}"
-    endpoint: "{{ keystone_service_adminuri }}"
+    endpoint: "{{ keystone_service_adminurl }}"
     user_name: "{{ searchlight_service_user_name }}"
     tenant_name: "{{ searchlight_service_project_name }}"
     role_name: "{{ item }}"
@@ -73,7 +73,7 @@
   keystone:
     command: "ensure_endpoint"
     token: "{{ keystone_auth_admin_token }}"
-    endpoint: "{{ keystone_service_adminuri }}"
+    endpoint: "{{ keystone_service_adminurl }}"
     insecure: "{{ keystone_service_adminuri_insecure }}"
     region_name: "{{ searchlight_service_region }}"
     service_name: "{{ searchlight_service_name }}"
