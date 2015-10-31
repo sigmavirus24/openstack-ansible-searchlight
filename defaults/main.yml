@@ -78,8 +78,6 @@ searchlight_pip_packages:
   - greenlet
   - PasteDeploy
   - Webob
-  - httplib2
-  - pycrypto
   - oslo.config
   - oslo.concurrency
   - oslo.context

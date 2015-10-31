@@ -47,18 +47,22 @@
   until: searchlight_pip_install|success
   retries: 5
   delay: 2
-
-- name: Install Searchlight pip packages
-  pip:
-    name: "{{ item }}"
-    state: "present"
-    extra_args: "{{ pip_install_options |default('') }}"
-  register: install_pip_packages
-  until: install_pip_packages|success
-  retries: 5
-  delay: 2
-  with_items: searchlight_pip_packages
   tags:
     - searchlight-install
-    - searchlight-pip-packages
-    - searchlight-install-pip-packages
+
+# NOTE(sigmavirus24): Until we have a better solution than installing from
+# git, let's leave this task commented out.
+#- name: Install Searchlight pip packages
+#  pip:
+#    name: "{{ item }}"
+#    state: "present"
+#    extra_args: "{{ pip_install_options |default('') }}"
+#  register: install_pip_packages
+#  until: install_pip_packages|success
+#  retries: 5
+#  delay: 2
+#  with_items: searchlight_pip_packages
+#  tags:
+#    - searchlight-install
+#    - searchlight-pip-packages
+#    - searchlight-install-pip-packages
